@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argocd
+  labels:
+    app: argocd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: argocd
+  template:
+    metadata:
+      labels:
+        app: argocd
+    spec:
+      containers:
+      - name: argocd
+        image: quay.io/argoproj/argocd:v2.12.4
+        command: ["sleep", "infinity"]
